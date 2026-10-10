@@ -57,8 +57,10 @@
   .unit-l { margin-top: 6px; font-size: 11px; letter-spacing: .4px; opacity: .92; }
   .when { margin: 14px 0 0; font-size: 14px; color: #4a5578; }
   .when b { color: var(--red); }
-  .open { display: none; margin: 16px auto 0; max-width: 420px; padding: 14px; border-radius: 14px;
-          background: #fff6e5; border: 2px dashed var(--saffron); font-weight: 700; color: var(--navy); }
+  .soon { margin: 4px auto 0; max-width: 420px; padding: 18px 14px; border-radius: 14px;
+          background: linear-gradient(180deg, var(--navy), var(--navy-2)); border-bottom: 4px solid var(--saffron); }
+  .soon .label { color: var(--yellow); font-size: 22px; }
+  .soon .label-en { color: #fff; font-size: 15px; opacity: .92; }
   .fees { margin: 18px 18px 0; text-align: center; }
   .fees h2 { margin: 0; font-size: 18px; color: var(--navy); }
   .fees .en { margin: 2px 0 0; font-size: 13px; color: #4a5578; }
@@ -126,17 +128,12 @@
 
       <img class="flyer flyer-m" src="img/flyer.jpg" alt="कारवाँ 2.0 · 16वाँ राष्ट्रीय अधिवेशन · Ranchi poster" />
 
-      <section class="count-wrap" aria-live="polite">
-        <p class="label">पंजीकरण शुरू होने में</p>
-        <p class="label-en">Registration opens in</p>
-        <div class="count">
-          <div class="unit"><div class="num" id="d">--</div><div class="unit-l">दिन · Days</div></div>
-          <div class="unit"><div class="num" id="h">--</div><div class="unit-l">घंटे · Hours</div></div>
-          <div class="unit"><div class="num" id="m">--</div><div class="unit-l">मिनट · Min</div></div>
-          <div class="unit"><div class="num" id="s">--</div><div class="unit-l">सेकंड · Sec</div></div>
+      <!-- Saurabh, 10 Oct ~23:52: no countdown — "registration opening soon" until the organising team confirms a date. -->
+      <section class="count-wrap">
+        <div class="soon">
+          <p class="label">पंजीकरण जल्द शुरू होगा</p>
+          <p class="label-en">Registration opening soon</p>
         </div>
-        <p class="when" id="when"></p>
-        <div class="open" id="open">🎉 पंजीकरण खुल रहा है — कृपया पेज रीफ़्रेश करें।<br/>Registration is opening — please refresh this page.</div>
       </section>
 
       <!-- Fees (Saurabh, 10 Oct: "Rs 1800 till 31st October / Rs 2100 till 30th November / Rs 2500 from 1st December") -->
@@ -170,31 +167,6 @@
   </main>
 
 <script>
-  // Opening moment, IST. Change this one line to move the countdown.
-  const OPENS = "2026-10-11T12:00:00+05:30";
-
-  const target = new Date(OPENS).getTime();
-  const $ = (id) => document.getElementById(id);
-  const pad = (n) => String(n).padStart(2, "0");
-  $("when").innerHTML = "<b>" + new Date(OPENS).toLocaleString("en-IN", {
-    timeZone: "Asia/Kolkata", weekday: "long", day: "numeric", month: "long", year: "numeric",
-    hour: "numeric", minute: "2-digit", hour12: true }) + " IST</b>";
-  function tick() {
-    const left = target - Date.now();
-    if (left <= 0) {
-      for (const k of ["d", "h", "m", "s"]) $(k).textContent = "00";
-      $("open").style.display = "block";
-      return;
-    }
-    const s = Math.floor(left / 1000);
-    $("d").textContent = pad(Math.floor(s / 86400));
-    $("h").textContent = pad(Math.floor((s % 86400) / 3600));
-    $("m").textContent = pad(Math.floor((s % 3600) / 60));
-    $("s").textContent = pad(s % 60);
-    setTimeout(tick, 1000 - (Date.now() % 1000));
-  }
-  tick();
-
   // Highlight the fee in force today (IST dates); earlier tiers fade.
   (function () {
     const now = Date.now();
