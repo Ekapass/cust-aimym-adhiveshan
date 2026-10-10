@@ -59,6 +59,19 @@
   .when b { color: var(--red); }
   .open { display: none; margin: 16px auto 0; max-width: 420px; padding: 14px; border-radius: 14px;
           background: #fff6e5; border: 2px dashed var(--saffron); font-weight: 700; color: var(--navy); }
+  .fees { margin: 18px 18px 0; text-align: center; }
+  .fees h2 { margin: 0; font-size: 18px; color: var(--navy); }
+  .fees .en { margin: 2px 0 0; font-size: 13px; color: #4a5578; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px auto 0; max-width: 460px; }
+  .tier { border: 2px solid #d9e3f3; border-radius: 12px; padding: 10px 4px; background: #fff; }
+  .tier .amt { font-size: 22px; font-weight: 800; color: var(--navy); }
+  .tier .till { margin-top: 4px; font-size: 12px; color: #4a5578; line-height: 1.3; }
+  .tier.now { border-color: var(--saffron); background: #fff6e5; box-shadow: 0 4px 14px rgba(242,140,24,.25); }
+  .tier.now .amt { color: var(--red); }
+  .tier.past { opacity: .45; }
+  .tier .tag { display: none; margin-top: 6px; font-size: 11px; font-weight: 800; color: #fff; background: var(--red);
+               border-radius: 999px; padding: 2px 8px; }
+  .tier.now .tag { display: inline-block; }
   .host { margin: 18px 18px 0; text-align: center; }
   .host .t { display: inline-block; background: var(--yellow); color: var(--navy-2); font-weight: 800; padding: 4px 14px;
              border-radius: 8px; border: 1px solid var(--gold); font-size: 14px; }
@@ -126,6 +139,17 @@
         <div class="open" id="open">🎉 पंजीकरण खुल रहा है — कृपया पेज रीफ़्रेश करें।<br/>Registration is opening — please refresh this page.</div>
       </section>
 
+      <!-- Fees (Saurabh, 10 Oct: "Rs 1800 till 31st October / Rs 2100 till 30th November / Rs 2500 from 1st December") -->
+      <section class="fees">
+        <h2>पंजीकरण शुल्क</h2>
+        <p class="en">Registration fee (per person)</p>
+        <div class="tiers">
+          <div class="tier" data-until="2026-11-01T00:00:00+05:30"><div class="amt">₹1,800</div><div class="till">31 अक्टूबर तक<br/>till 31 Oct</div><span class="tag">अभी · Now</span></div>
+          <div class="tier" data-until="2026-12-01T00:00:00+05:30"><div class="amt">₹2,100</div><div class="till">30 नवंबर तक<br/>till 30 Nov</div><span class="tag">अभी · Now</span></div>
+          <div class="tier" data-until=""><div class="amt">₹2,500</div><div class="till">1 दिसंबर से<br/>from 1 Dec</div><span class="tag">अभी · Now</span></div>
+        </div>
+      </section>
+
       <div class="host">
         <span class="t">आतिथ्य शाखा</span>
         <p class="n">मारवाड़ी युवा मंच, रांची शाखा</p>
@@ -170,6 +194,17 @@
     setTimeout(tick, 1000 - (Date.now() % 1000));
   }
   tick();
+
+  // Highlight the fee in force today (IST dates); earlier tiers fade.
+  (function () {
+    const now = Date.now();
+    let marked = false;
+    for (const el of document.querySelectorAll(".tier")) {
+      const u = el.dataset.until ? new Date(el.dataset.until).getTime() : Infinity;
+      if (now >= u) el.classList.add("past");
+      else if (!marked) { el.classList.add("now"); marked = true; }
+    }
+  })();
 </script>
 </body>
 </html>
