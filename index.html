@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>कारवाँ 2.0 · 16वाँ राष्ट्रीय अधिवेशन · Ranchi | AIMYM</title>
+<meta name="description" content="All India Marwari Yuva Manch — Karwaan 2.0, 16th National Adhiveshan, Ranchi, 17–20 December 2026. Registration opens soon." />
+<meta property="og:title" content="कारवाँ 2.0 · 16वाँ राष्ट्रीय अधिवेशन · Ranchi" />
+<meta property="og:description" content="राष्ट्रीय सभा 17 दिसंबर · राष्ट्रीय अधिवेशन 18, 19 एवं 20 दिसंबर 2026 · पंजीकरण जल्द शुरू" />
+<meta property="og:image" content="img/flyer.jpg" />
+<meta name="theme-color" content="#14275e" />
+<link rel="icon" href="img/aimym-logo.png" />
+<style>
+  /* Countdown placeholder — AIMYM Karwaan 2.0 (Saurabh, 10 Oct). Palette from the Ranchi poster:
+     sky blue, navy band, title red, saffron/green tricolour, poster's yellow date box.
+     The ONLY thing to change for a new opening time is OPENS in the script. */
+  :root {
+    --navy:#14275e; --navy-2:#0d1c47; --red:#c8102e; --saffron:#f28c18; --green:#138808;
+    --yellow:#ffe066; --sky:#dcecfb; --sky-2:#f4f9ff; --ink:#1d2340; --gold:#f2c230;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; color: var(--ink);
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", "Noto Sans Devanagari", sans-serif;
+    background:
+      radial-gradient(90% 50% at 85% 0%, rgba(242,140,24,.28), transparent 60%),
+      linear-gradient(180deg, #9cc6ef 0%, var(--sky) 40%, var(--sky-2) 100%);
+    display: flex; justify-content: center; padding: 20px 16px 36px;
+  }
+  .card { width: 100%; max-width: 560px; background: #fff; border-radius: 22px; overflow: hidden;
+          box-shadow: 0 20px 60px rgba(20,39,94,.25); }
+  .tricolour { height: 6px; background: linear-gradient(90deg, var(--saffron) 0 33.3%, #fff 33.3% 66.6%, var(--green) 66.6%); }
+  header { text-align: center; padding: 18px 18px 4px; }
+  .brand { display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .brand img { width: 64px; height: 64px; border-radius: 50%; }
+  .org { margin: 0; font-weight: 800; color: var(--navy); font-size: 17px; line-height: 1.2; text-align: left; }
+  .org-en { margin: 2px 0 0; font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: .3px; text-align: left; }
+  .badge { display: inline-block; margin-top: 16px; padding: 6px 16px; border-radius: 999px;
+           background: radial-gradient(circle at 30% 30%, #2f6fd6, #123a8f); color: #fff; font-weight: 800;
+           font-size: 18px; box-shadow: 0 4px 14px rgba(18,58,143,.35); border: 2px solid #fff; }
+  h1 { margin: 10px 0 0; font-size: 34px; line-height: 1.2; color: var(--red); }
+  h1 small { display: block; font-size: 20px; color: var(--navy); }
+  .place { margin: 8px 0 0; font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: 2px; }
+  .dates { margin: 14px auto 0; max-width: 420px; border-radius: 14px; background: var(--yellow);
+           border: 2px solid var(--gold); padding: 10px 12px; color: var(--navy-2); }
+  .dates p { margin: 2px 0; font-weight: 700; }
+  .dates .d { color: var(--red); font-size: 18px; }
+  .flyer { display: block; width: 100%; margin-top: 16px; }
+  .count-wrap { padding: 20px 16px 6px; text-align: center; }
+  .label { margin: 0; font-weight: 800; color: var(--navy); font-size: 18px; }
+  .label-en { margin: 2px 0 0; font-size: 13px; color: #4a5578; }
+  .count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px auto 0; max-width: 420px; }
+  .unit { background: linear-gradient(180deg, var(--navy), var(--navy-2)); color: #fff; border-radius: 14px;
+          padding: 12px 4px 10px; border-bottom: 4px solid var(--saffron); }
+  .num { font-size: 32px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--yellow); line-height: 1; }
+  .unit-l { margin-top: 6px; font-size: 11px; letter-spacing: .4px; opacity: .92; }
+  .when { margin: 14px 0 0; font-size: 14px; color: #4a5578; }
+  .when b { color: var(--red); }
+  .soon { margin: 4px auto 0; max-width: 420px; padding: 18px 14px; border-radius: 14px;
+          background: linear-gradient(180deg, var(--navy), var(--navy-2)); border-bottom: 4px solid var(--saffron); }
+  .soon .label { color: var(--yellow); font-size: 22px; }
+  .soon .label-en { color: #fff; font-size: 15px; opacity: .92; }
+  .fees { margin: 18px 18px 0; text-align: center; }
+  .fees h2 { margin: 0; font-size: 18px; color: var(--navy); }
+  .fees .en { margin: 2px 0 0; font-size: 13px; color: #4a5578; }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px auto 0; max-width: 460px; }
+  .tier { border: 2px solid #d9e3f3; border-radius: 12px; padding: 10px 4px; background: #fff; }
+  .tier .amt { font-size: 22px; font-weight: 800; color: var(--navy); }
+  .tier .till { margin-top: 4px; font-size: 12px; color: #4a5578; line-height: 1.3; }
+  .tier.now { border-color: var(--saffron); background: #fff6e5; box-shadow: 0 4px 14px rgba(242,140,24,.25); }
+  .tier.now .amt { color: var(--red); }
+  .tier.past { opacity: .45; }
+  .tier .tag { display: none; margin-top: 6px; font-size: 11px; font-weight: 800; color: #fff; background: var(--red);
+               border-radius: 999px; padding: 2px 8px; }
+  .tier.now .tag { display: inline-block; }
+  .host { margin: 18px 18px 0; text-align: center; }
+  .host .t { display: inline-block; background: var(--yellow); color: var(--navy-2); font-weight: 800; padding: 4px 14px;
+             border-radius: 8px; border: 1px solid var(--gold); font-size: 14px; }
+  .host .n { margin: 8px 0 0; font-weight: 800; color: var(--navy); font-size: 18px; }
+  .host .p { margin: 2px 0 0; font-size: 13px; color: var(--red); font-weight: 700; }
+  .note { margin: 18px 18px 0; padding: 12px 14px; background: var(--sky-2); border-radius: 12px; border: 1px solid #cfe0f4;
+          font-size: 14px; line-height: 1.5; text-align: center; }
+  footer { margin-top: 22px; background: var(--navy); color: #fff; text-align: center; padding: 16px 14px 18px; }
+  footer .hq { font-size: 11px; opacity: .8; letter-spacing: .3px; }
+  footer .name { margin-top: 4px; font-size: 16px; font-weight: 800; color: var(--yellow); }
+  footer .addr { margin-top: 6px; font-size: 12px; opacity: .9; line-height: 1.5; }
+  footer a { color: #fff; }
+  footer .eka { margin-top: 12px; font-size: 11px; letter-spacing: 2px; opacity: .55; }
+  @media (max-width: 380px) { h1 { font-size: 28px; } .num { font-size: 26px; } }
+
+  /* Desktop: poster left, everything else right (lesson from Jagriti: "In web also it look mobile only"). */
+  @media (min-width: 1000px) {
+    .card { max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+    .tricolour, footer { grid-column: 1 / -1; }
+    .left { padding: 28px; position: sticky; top: 20px; }
+    .left .flyer { margin: 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(20,39,94,.2); }
+    .right { padding: 8px 8px 24px; }
+    .right .flyer-m { display: none; }
+    footer { margin-top: 0; }
+  }
+  @media (max-width: 999px) { .left { display: none; } }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="tricolour"></div>
+
+    <div class="left"><img class="flyer" src="img/flyer.jpg" alt="कारवाँ 2.0 · 16वाँ राष्ट्रीय अधिवेशन · Ranchi poster" /></div>
+
+    <div class="right">
+      <header>
+        <div class="brand">
+          <img src="img/aimym-logo.png" alt="AIMYM" />
+          <div>
+            <p class="org">अखिल भारतीय मारवाड़ी युवा मंच</p>
+            <p class="org-en">ALL INDIA MARWARI YUVA MANCH</p>
+          </div>
+        </div>
+        <div class="badge">कारवाँ 2.0</div>
+        <h1>16वाँ राष्ट्रीय अधिवेशन<small>16th National Adhiveshan</small></h1>
+        <p class="place">RANCHI · रांची</p>
+        <div class="dates">
+          <p><span class="d">17 दिसंबर 2026</span> — राष्ट्रीय सभा</p>
+          <p><span class="d">18, 19 एवं 20 दिसंबर 2026</span> — राष्ट्रीय अधिवेशन</p>
+        </div>
+      </header>
+
+      <img class="flyer flyer-m" src="img/flyer.jpg" alt="कारवाँ 2.0 · 16वाँ राष्ट्रीय अधिवेशन · Ranchi poster" />
+
+      <!-- Saurabh, 10 Oct ~23:52: no countdown — "registration opening soon" until the organising team confirms a date. -->
+      <section class="count-wrap">
+        <div class="soon">
+          <p class="label">पंजीकरण जल्द शुरू होगा</p>
+          <p class="label-en">Registration opening soon</p>
+        </div>
+      </section>
+
+      <!-- Fees (Saurabh, 10 Oct: "Rs 1800 till 31st October / Rs 2100 till 30th November / Rs 2500 from 1st December") -->
+      <section class="fees">
+        <h2>पंजीकरण शुल्क</h2>
+        <p class="en">Registration fee (per person)</p>
+        <div class="tiers">
+          <div class="tier" data-until="2026-11-01T00:00:00+05:30"><div class="amt">₹1,800</div><div class="till">31 अक्टूबर तक<br/>till 31 Oct</div><span class="tag">अभी · Now</span></div>
+          <div class="tier" data-until="2026-12-01T00:00:00+05:30"><div class="amt">₹2,100</div><div class="till">30 नवंबर तक<br/>till 30 Nov</div><span class="tag">अभी · Now</span></div>
+          <div class="tier" data-until=""><div class="amt">₹2,500</div><div class="till">1 दिसंबर से<br/>from 1 Dec</div><span class="tag">अभी · Now</span></div>
+        </div>
+      </section>
+
+      <div class="host">
+        <span class="t">आतिथ्य शाखा</span>
+        <p class="n">मारवाड़ी युवा मंच, रांची शाखा</p>
+        <p class="p">(झारखंड प्रांतीय मारवाड़ी युवा मंच)</p>
+      </div>
+
+      <p class="note">इस लिंक को सहेज लें और अपनी शाखा के साथियों के साथ साझा करें।<br/>Save this link and share it with your branch members.</p>
+    </div>
+
+    <footer>
+      <div class="hq">National Head Quarter</div>
+      <div class="name">ALL INDIA MARWARI YUVA MANCH</div>
+      <div class="addr">3432/13, Hasan Building, 2nd Floor, Nicholson Road, Kashmere Gate, Delhi-110006<br/>
+        <a href="tel:+919211116264">+91 9211116264</a> · <a href="tel:+911145627626">+91 11 45627626</a> ·
+        <a href="mailto:info@aimym.org">info@aimym.org</a> · <a href="https://www.aimym.org">www.aimym.org</a></div>
+      <div class="eka">POWERED BY EKAPASS</div>
+    </footer>
+  </main>
+
+<script>
+  // Highlight the fee in force today (IST dates); earlier tiers fade.
+  (function () {
+    const now = Date.now();
+    let marked = false;
+    for (const el of document.querySelectorAll(".tier")) {
+      const u = el.dataset.until ? new Date(el.dataset.until).getTime() : Infinity;
+      if (now >= u) el.classList.add("past");
+      else if (!marked) { el.classList.add("now"); marked = true; }
+    }
+  })();
+</script>
+</body>
+</html>
